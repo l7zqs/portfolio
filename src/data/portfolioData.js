@@ -246,9 +246,8 @@ export const portfolioData = {
   },
 }
 
-export const visibleSocialLinks = (links: Record<string, string | null>) =>
+export const visibleSocialLinks = (links) =>
   Object.entries(links).filter(([, url]) => Boolean(url))
-
 export const socialLabels = {
   github: 'GitHub',
   linkedin: 'LinkedIn',
