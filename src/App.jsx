@@ -2,12 +2,27 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight, ChevronDown, Download, ExternalLink, Mail, Menu, X } from 'lucide-react'
-import { siGithub, siLinkedin, siDiscord, siJavascript, siTypescript, siPython, siReact, siNodedotjs, siPostgresql, siGit, siMongodb, siFigma } from 'simple-icons/icons'
+import { siGithub, siDiscord, siJavascript, siTypescript, siPython, siReact, siNodedotjs, siPostgresql, siGit, siMongodb, siFigma } from 'simple-icons/icons'
 import portfolioData, { socialLabels, visibleSocialLinks } from './data/portfolioData'
 
 const d = portfolioData
 function BrandIcon({ icon, size = 16 }) { return <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true"><path d={icon.path}/></svg> }
-const iconMap = { email: Mail, github: (p) => <BrandIcon icon={siGithub} {...p}/>, linkedin: (p) => <BrandIcon icon={siLinkedin} {...p}/>, discord: (p) => <BrandIcon icon={siDiscord} {...p}/> }
+function LinkedInIcon({ size = 16 }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <rect x="3" y="9" width="4" height="12" rx="1" />
+      <circle cx="5" cy="4" r="2.5" />
+      <path d="M11 9h4v2.2c1-1.6 2.7-2.6 4.8-2.6 3.6 0 5.2 2.4 5.2 6.4V21h-4v-5.4c0-1.9-.7-3.1-2.4-3.1-1.3 0-2.1.9-2.4 1.8-.1.3-.2.8-.2 1.3V21h-4z" />
+    </svg>
+  )
+}
+const iconMap = { email: Mail, github: (p) => <BrandIcon icon={siGithub} {...p}/>, linkedin: (p) => <LinkedInIcon {...p} />, discord: (p) => <BrandIcon icon={siDiscord} {...p}/> }
 const skillBrandIcons = { JavaScript: siJavascript, TypeScript: siTypescript, Python: siPython, React: siReact, 'Node.js': siNodedotjs, PostgreSQL: siPostgresql, Git: siGit, MongoDB: siMongodb, Figma: siFigma }
 
 function Preloader() { const [show, setShow] = useState(true); useEffect(() => { const t = setTimeout(() => setShow(false), 900); return () => clearTimeout(t) }, []); return <AnimatePresence>{show && <motion.div className="preloader" initial={{ opacity: 1 }} exit={{ opacity: 0 }}><div className="spinner center">{Array.from({ length: 12 }).map((_, i) => <div className="spinner-blade" key={i}/>)}</div></motion.div>}</AnimatePresence> }
