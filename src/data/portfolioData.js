@@ -2,7 +2,7 @@ export const portfolioData = {
   personalInfo: {
     name: 'Mahmudul Hasan',
     initials: 'MH',
-    title: 'CSE Student & Web Developer',
+    title: 'CSE Student & Full-Stack Developer',
     location: 'Dhaka, Bangladesh',
     email: 'mahmudulhasan15035@gmail.com',
     summary:
@@ -20,7 +20,7 @@ export const portfolioData = {
   },
 
   heroContent: {
-    eyebrow: 'CSE Student · Web Developer',
+    eyebrow: 'SEEKING INTERNSHIP OPPORTUNITIES',
     titles: [
       'Web Developer',
       'Frontend Developer',
